@@ -1,11 +1,11 @@
-class Slingslot{
+class SlingSlot{
 
     constructor(a,b){
         var options={
             bodyA:a,
             pointB:b,
-            stiffness:1,
-            length:100
+            stiffness:2,
+            length:300
         }
         this.body=Constraint.create(options);
         this.width=b;

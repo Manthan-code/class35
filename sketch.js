@@ -3,7 +3,7 @@ const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
-var b1;
+var b1,line1;
 
 function setup(){
  
@@ -16,10 +16,8 @@ function setup(){
     ground=Bodies.rectangle(400,485,800,30,option);
     World.add(world,ground);
 
-    ball=Bodies.circle(300,300,30,option);
-    World.add(world,ground);
-
-    line1=new Slingslot(ball.body,{x:300,y:50});
+   ball1=new Ball(300,200);
+    line1=new SlingSlot(ball1.body,{x:300,y:50});
 
     
     building1=new Building(700,100);
@@ -51,12 +49,9 @@ function draw(){
     rectMode(CENTER);
     fill("black");
     rect(ground.position.x,ground.position.y,800,25);
-    pop();  
-    push();
-    fill("red");
-    ellipseMode(RADIUS);
-    ellipse(ball.position.x,ball.position.y,30,30);
-    pop();
+    pop(); 
+  
+
     building1.display();
     building2.display();
     building3.display();
@@ -75,10 +70,21 @@ function draw(){
     building14.display();
     building15.display();
 
+    ball1.display();
+
     line1.display();
 
 
 }
+
+function mouseDragged(){
+    Matter.Body.setPosition(ball1.body, {x: mouseX , y: mouseY});
+
+}
+
+
+
+
 
 
 
